@@ -37,11 +37,11 @@ def encryption(message): # Function for encrypting the message
             newMessage += newAlphabet[fIndex]
     return newMessage
 
-def decryption(message):
+def decryption(message): #Function for decrypting message
     newMessage = ""
     key = -4
     newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)]
-    for x in range(0, len(message)):
+    for x in range(0, len(message)): #Runs for every letter in the messsage
         index = alphabet.find(message[x])
         if index < 0:
             newMessage += message[x]
@@ -82,7 +82,7 @@ def account(user): # Function for account
             info = userData[mailRecipient]
             friendInbox = info[2]
             friendInbox.append(encryption(eMail)) # Encrypts message
-        elif inboxOrWrite == "q":
+        elif inboxOrWrite == "q": #If user wants to quit
             break
         else:
             print("That is not an option Try again!")
