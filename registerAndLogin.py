@@ -27,9 +27,9 @@ def encryption(message): # Function for encrypting the message
     for y in range(0, len(message)):
         fIndex: alphabet.find(message[y])
         if key < 0:  # If key is negative
-            newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)]
+            newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)] #newAlphabet is everything after the key to everything before the key (if that even makes sense)
         else:  # If key is positive
-            newAlphabet = alphabet[key:] + alphabet[:key]
+            newAlphabet = alphabet[key:] + alphabet[:key] #newAlphabet is everything after the key to everything before the key (if that even makes sense)
         fIndex = alphabet.find(message[y])
         if fIndex < 0:
             newMessage += message[y]
@@ -40,7 +40,7 @@ def encryption(message): # Function for encrypting the message
 def decryption(message): #Function for decrypting message
     newMessage = ""
     key = -4
-    newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)]
+    newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)] #newAlphabet is everything after the key to everything before the key (if that even makes sense)
     for x in range(0, len(message)): #Runs for every letter in the messsage
         index = alphabet.find(message[x])
         if index < 0:
