@@ -21,7 +21,7 @@ if os.path.exists("userInformation.txt"): #Don't want to explain it
         userData[userName] = info
     f.close()
 
-def encryption(message): # Function for encrypting the message
+def encryption(message): # Function for encrypting the message. Returns decrypted message
     key = 4
     newMessage = ""
     for y in range(0, len(message)):
@@ -37,7 +37,7 @@ def encryption(message): # Function for encrypting the message
             newMessage += newAlphabet[fIndex]
     return newMessage
 
-def decryption(message): #Function for decrypting message
+def decryption(message): #Function for decrypting message. Returns decrypted message
     newMessage = ""
     key = -4
     newAlphabet = alphabet[(26 + key):] + alphabet[:(26 + key)] #newAlphabet is everything after the key to everything before the key (if that even makes sense)
@@ -65,7 +65,7 @@ def hasher(x): # Function for hashing passwords
     b = bytes(x, "UTF-8")
     return hashlib.sha256(b).hexdigest()
 
-def account(user): # Function for account
+def account(user): # Function for whn user accessess their account. Function to access inbox, and write message.
     inboxOrWrite = input("Enter I if you want to access your inbox. Enter W if you want to write a message to another user. Enter Q if you want to exit your account: ").lower()
     while inboxOrWrite:
         if inboxOrWrite == "i":  # If user accesses inbox
@@ -76,7 +76,7 @@ def account(user): # Function for account
         elif inboxOrWrite == "w":  # If user sends message to another user
             mailRecipient = input("Who is the recipient of this email: ")
             if not userData.get(mailRecipient):  # If there is no user to begin with
-                print("Error no user detected")
+                print("Error no user detected"
                 continue
             eMail = input("What is the message you want to send: ").strip("^") #If there is a ^ in their message
             info = userData[mailRecipient]
